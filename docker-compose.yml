@@ -1,0 +1,17 @@
+# Docker Compose Configuration
+# visit https://docs.docker.com/compose/
+
+version: '3.8'
+services:
+  app:
+    container_name: guess-das-mot-be
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    ports:
+      - '4000:4000'
+    volumes:
+      - .:/app
+    command: npm run dev
